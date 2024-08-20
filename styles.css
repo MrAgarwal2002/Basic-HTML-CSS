@@ -1,0 +1,60 @@
+/* Basic container styling */
+.container {
+  width: 300px;
+  height: 200px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Hide the checkbox */
+#toggleCheckbox {
+  display: none;
+}
+
+/* Button styling */
+.toggleButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Text styling */
+.text {
+  font-size: 18px;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Change container and button styles when checkbox is checked */
+#toggleCheckbox:checked + .toggleButton {
+  background-color: green;
+}
+
+#toggleCheckbox:checked ~ .text {
+  color: red;
+  font-weight: bold;
+}
+
+#toggleCheckbox:checked ~ .container {
+  background-color: lightblue;
+}
+
+/* Change the text content of the label using :before pseudo-element */
+#toggleCheckbox:checked + .toggleButton::before {
+  content: "Revert State";
+}
+
+#toggleCheckbox:not(:checked) + .toggleButton::before {
+  content: "Change State";
+}
